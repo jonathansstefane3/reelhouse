@@ -7,11 +7,11 @@ Built for the *Web and Mobile Application Development* practical assignment "Mov
 - Live site: _ jonathansstefane3_
 - Repository: _ https://github.com/jonathansstefane3/reelhouse_
 
-## Screenshots
+## Screenshots_
 
 | Homepage | Details view |
 | --- | --- |
-| ![Homepage](screenshots/homepage.png) | ![Details](screenshots/details.png) |
+| ![Homepage](screenshots_/homepage.png) | ![Details](screenshots_/details.png) |
 
 ## Technologies
 
