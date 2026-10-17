@@ -4,8 +4,8 @@ A responsive movie and TV discovery web application inspired by MovieBox. Users 
 
 Built for the *Web and Mobile Application Development* practical assignment "Movie Discovery Web Application".
 
-- **Live site:** _ jonathansstefane3_
-- **Repository:** _ https://github.com/jonathansstefane3/reelhouse_
+- Live site: _ jonathansstefane3_
+- Repository: _ https://github.com/jonathansstefane3/reelhouse_
 
 ## Screenshots
 
