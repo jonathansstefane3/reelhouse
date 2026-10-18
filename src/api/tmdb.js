@@ -1,11 +1,11 @@
-// All requests go to /api/tmdb/... which is handled by the Vite dev proxy locally
-// and by a Netlify Function in production. The API key is added on the server side.
+// All requests go to /api/tmdb?path=... which is handled by the Vite dev proxy locally
+// and by a serverless function (api/tmdb.js) in production. The API key is added on the server side.
 const BASE = "/api/tmdb";
 const IMG = "https://image.tmdb.org/t/p/";
 
 export async function tmdb(path, params = {}, signal) {
-  const qs = new URLSearchParams(params).toString();
-  const res = await fetch(`${BASE}${path}${qs ? `?${qs}` : ""}`, { signal });
+  const qs = new URLSearchParams({ path, ...params }).toString();
+  const res = await fetch(`${BASE}?${qs}`, { signal });
   if (!res.ok) {
     let message = res.statusText;
     try {

@@ -2,16 +2,15 @@
 
 A responsive movie and TV discovery web application inspired by MovieBox. Users can browse trending and popular titles, search, filter by genre, read details and keep a personal watchlist.
 
-Built for the Web and Mobile Application Development practical assignment "Movie Discovery Web Application".
+Built for the *Web and Mobile Application Development* practical assignment "Movie Discovery Web Application".
 
-- Live site: _ reelhouse-sepia.vercel.app
-- Repository: _ https://github.com/jonathansstefane3/reelhouse_
+- **Live site and repository:** the links are given in the Moodle submission.
 
-## Screenshots_
+## Screenshots
 
 | Homepage | Details view |
 | --- | --- |
-| ![Homepage](screenshots_/homepage.png) | ![Details](screenshots_/details.png) |
+| ![Homepage](screenshots/homepage.png) | ![Details](screenshots/details.png) |
 
 ## Technologies
 
@@ -20,7 +19,7 @@ Built for the Web and Mobile Application Development practical assignment "Movie
 - React Router v6 for navigation
 - React Hooks: `useState`, `useEffect`, `useMemo`, `useCallback`, `useContext`
 - Fetch API for network requests
-- Netlify (hosting and a serverless function)
+- Vercel (hosting and a serverless function)
 
 ## API used
 
@@ -56,7 +55,7 @@ src/
                            GenreFilter, DetailsDialog, StateMessage
   pages/                   HomePage, BrowsePage (Movies and TV), SearchPage, WatchlistPage, NotFoundPage
   utils/format.js          turns movie and TV records into one shape; date and runtime formatting
-netlify/functions/tmdb.mjs secure proxy that adds the API key on the server
+api/tmdb.js                secure proxy for Vercel that adds the API key on the server
 vite.config.js             dev-server proxy that adds the API key locally
 ```
 
@@ -64,8 +63,8 @@ vite.config.js             dev-server proxy that adds the API key locally
 
 The key is **never** in the React code or in GitHub. The browser calls `/api/tmdb/...` on the same site:
 
-Locally, the Vite dev server (`vite.config.js`) forwards the request to TMDB and adds the key from your `.env` file.
-
+- **Locally**, the Vite dev server (`vite.config.js`) forwards the request to TMDB and adds the key from your `.env` file.
+- **On Vercel**, the function `api/tmdb.js` does the same using the `TMDB_API_KEY` environment variable. It only allows a short list of read-only TMDB paths.
 
 ## Run locally
 
@@ -73,17 +72,24 @@ Requires Node.js 18 or newer.
 
 1. Get a free v3 API key from TMDB (Settings, then API).
 2. Install dependencies:
-   
+   ```
    npm install
-   
+   ```
 3. Copy `.env.example` to `.env` and replace the placeholder:
-   
+   ```
    TMDB_API_KEY=your_tmdb_v3_api_key_here
-   
+   ```
 4. Start the app:
-   
+   ```
    npm run dev
-   
-5. Open the address shown in the terminal .
+   ```
+5. Open the address shown in the terminal (normally http://localhost:5173).
 
-If you change `.env`, stop the server and run `npm run dev` again
+If you change `.env`, stop the server and run `npm run dev` again.
+
+## Deploy to Vercel
+
+1. Push the project to GitHub (`.env` and `node_modules` are git-ignored).
+2. On vercel.com choose **Add New, Project** and import the repository. The Vite settings are detected automatically.
+3. Under **Environment Variables** add `TMDB_API_KEY` with your key.
+4. Click **Deploy**, then paste the live link at the top of this README.

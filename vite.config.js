@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 // The TMDB key is read here, on the dev server, and added to the request.
 // It is never bundled into the browser code. In production the same job is done
-// by the Netlify Function in netlify/functions/tmdb.mjs.
+// by the serverless function api/tmdb.js.
 function tmdbProxy(key) {
   return {
     "/api/tmdb": {
@@ -11,10 +11,12 @@ function tmdbProxy(key) {
       changeOrigin: true,
       rewrite: (path) => {
         const url = new URL(path, "http://local");
+        const apiPath = url.searchParams.get("path") || "";
+        url.searchParams.delete("path");
         url.searchParams.delete("api_key");
         url.searchParams.set("api_key", key);
         url.searchParams.set("language", "en-US");
-        return `/3${url.pathname.replace(/^\/api\/tmdb/, "")}${url.search}`;
+        return `/3${apiPath}?${url.searchParams}`;
       },
     },
   };
