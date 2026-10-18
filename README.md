@@ -4,7 +4,8 @@ A responsive movie and TV discovery web application inspired by MovieBox. Users 
 
 Built for the *Web and Mobile Application Development* practical assignment "Movie Discovery Web Application".
 
-- **Live site and repository:** the links are given in the Moodle submission.
+- Live site: https://reelhouse-fwq1-alpha.vercel.app/
+- repository:https://github.com/jonathansstefane3/reelhouse
 
 ## Screenshots
 
