@@ -2,7 +2,7 @@
 
 A responsive movie and TV discovery web application inspired by MovieBox. Users can browse trending and popular titles, search, filter by genre, read details and keep a personal watchlist.
 
-Built for the *Web and Mobile Application Development* practical assignment "Movie Discovery Web Application".
+Built for the Web and Mobile Application Development practical assignment "Movie Discovery Web Application".
 
 - Live site: _ reelhouse-sepia.vercel.app
 - Repository: _ https://github.com/jonathansstefane3/reelhouse_
@@ -64,8 +64,8 @@ vite.config.js             dev-server proxy that adds the API key locally
 
 The key is **never** in the React code or in GitHub. The browser calls `/api/tmdb/...` on the same site:
 
-- **Locally**, the Vite dev server (`vite.config.js`) forwards the request to TMDB and adds the key from your `.env` file.
-- **On Netlify**, the function `netlify/functions/tmdb.mjs` does the same using the `TMDB_API_KEY` environment variable. It only allows a short list of read-only TMDB paths.
+Locally, the Vite dev server (`vite.config.js`) forwards the request to TMDB and adds the key from your `.env` file.
+
 
 ## Run locally
 
@@ -73,25 +73,17 @@ Requires Node.js 18 or newer.
 
 1. Get a free v3 API key from TMDB (Settings, then API).
 2. Install dependencies:
-   ```
+   
    npm install
-   ```
+   
 3. Copy `.env.example` to `.env` and replace the placeholder:
-   ```
+   
    TMDB_API_KEY=your_tmdb_v3_api_key_here
-   ```
+   
 4. Start the app:
-   ```
+   
    npm run dev
-   ```
-5. Open the address shown in the terminal (normally http://localhost:5173).
+   
+5. Open the address shown in the terminal .
 
-If you change `.env`, stop the server and run `npm run dev` again.
-
-## Deploy to Netlify
-
-1. Push the project to GitHub (`.env` and `node_modules` are already git-ignored).
-2. On Netlify choose **Add new site, Import an existing project**, and pick the repository.
-3. The build settings come from `netlify.toml` (build command `npm run build`, publish folder `dist`).
-4. Open **Site configuration, Environment variables** and add `TMDB_API_KEY` with your key.
-5. Trigger a deploy. Paste the live link at the top of this README.
+If you change `.env`, stop the server and run `npm run dev` again
